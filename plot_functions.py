@@ -7,6 +7,7 @@ from helper_functions import make_book_name_list, make_long_text
 from helper_functions import make_category_list
 
 def make_color_list():
+    """returns a color list to use in the scatter plots"""
     color_dict = mcolors.XKCD_COLORS
     color_list = []
     for item in color_dict.values():
@@ -14,6 +15,7 @@ def make_color_list():
     return(color_list)
 
 def plot_matrix(matrix):
+    """plots the simularity matrix"""
     plt.matshow(matrix)
     plt.title('Document Similarity Matrix')
     plt.xlabel('Document ID')
@@ -21,6 +23,7 @@ def plot_matrix(matrix):
     plt.savefig('Simularity_matrix.png', facecolor='white')
 
 def plot_dendogram(similarity_matrix, index_dict):
+    """plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
     book_names_list = make_book_name_list(index_dict)
     linkage_matrix = ward(similarity_matrix) # Define the linkage_matrix using ward clustering pre-computed distances
     mpl.rcParams['lines.linewidth'] = 5
@@ -28,14 +31,14 @@ def plot_dendogram(similarity_matrix, index_dict):
     fig, ax = plt.subplots(figsize=(15, 20)) # Set size
     ax = dendrogram(linkage_matrix, orientation="right", labels=book_names_list);
 
-    plt.tick_params(\
+    plt.tick_params(
         axis= 'x',
         which='both',
         bottom='off',
         top='off',
         labelbottom='off',
         length = 25)
-    plt.tick_params(\
+    plt.tick_params(
         axis= 'y',
         which='both',
         bottom='off',
@@ -47,12 +50,30 @@ def plot_dendogram(similarity_matrix, index_dict):
     plt.savefig('Dendogram.png', facecolor='white')
 
 def plot_scatter(index_dict, x, y, offset, annotate=True):
+    """plots scatter points
+
+    Parameters
+    ----------
+
+    index_dict : dict
+        An index dictionary read from the index.csv file.
+    x : list of floats
+        x co-ordinate of each point
+    y : list of floats
+        y co-ordinate of each point
+    offset : float
+        distance of each annotation from the data point
+    annotate : bool
+        True if data points are to be annotated
+    """
     marker_list = ['o', 'v', '^', '<', '>', '+', '*', 's','x']
-    # rotate through this list
+    # rotate through this list to select distinct markers
     category_list = make_category_list(index_dict)
     color_list = make_color_list()
     for i, category in enumerate(category_list):
+        #loop by categories and make a separate plot for each category
         marker = marker_list[i % len(marker_list)]
+        #choose a new marker
         x_list = []
         y_list = []
         text_list = []
@@ -64,8 +85,12 @@ def plot_scatter(index_dict, x, y, offset, annotate=True):
                     text = make_long_text(item)
                     text_list.append(text)
                 color = color_list[i]
+                #next color - there are many in the list so no risk of index error
         plt.scatter(x_list, y_list, color=color, label=category, marker=marker)
+        #rotating through markers and colors for each category
         if annotate == True:
+            #add annotations for each data point.  Becomes messy if more that about
+            #ten data points
             for i, txt in enumerate(text_list):
                 plt.annotate(txt, 
                             (x_list[i],y_list[i]), 
@@ -74,4 +99,5 @@ def plot_scatter(index_dict, x, y, offset, annotate=True):
                             )  
     plt.title('Manifesto Map')
     plt.legend(loc = 'upper right', bbox_to_anchor=(1.35, 0.9), shadow=True, title="Category",)
+    #need legend outside plot for clarity
     plt.savefig('Manifesto_map.png',facecolor='white' )
