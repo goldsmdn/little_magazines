@@ -6,17 +6,17 @@ from nltk.stem.porter import PorterStemmer
 import nltk
 
 def remove_html_tags(text):
-    """removes html charactors from text"""
+    """Removes html charactors from text"""
     clean_text = re.sub(r'<.*?>', '', text)
     return clean_text
 
 def remove_special_characters(text):
-    """removes special charactors from text"""
+    """Removes special charactors from text"""
     clean_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
     return clean_text
 
 def read_index(filename, encoding):
-    """reads CSV file and returns and dictionary
+    """Reads CSV file and returns and dictionary
      
     Parameters
     ----------
@@ -40,7 +40,7 @@ def read_index(filename, encoding):
     return(dict)
 
 def read_text(filename, encoding):
-    """reads and cleans html tags and special charactors from a text file
+    """Reads and cleans html tags and special charactors from a text file
 
     Parameters
     ----------
@@ -67,7 +67,7 @@ def read_text(filename, encoding):
     return(text_string)
 
 def read_text_files(index, encoding, path):
-    """read read files and concatenate into the corpus
+    """Read read files and concatenate into the corpus
 
     Parameters
     ----------
@@ -88,7 +88,7 @@ def read_text_files(index, encoding, path):
     return(corpus)
 
 def tokenize(text):
-        """returns the stemmed text"""
+        """Returns the stemmed text"""
         stemmer = PorterStemmer()
         tokens = [word for word in nltk.word_tokenize(text) if len(word) > 1] 
         #if len(word) > 1 because only want to retain words that are at least two characters before stemming

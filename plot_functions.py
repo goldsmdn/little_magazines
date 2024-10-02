@@ -1,29 +1,33 @@
 from scipy.cluster.hierarchy import ward, dendrogram
+
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
+from matplotlib import colormaps
 
 from helper_functions import make_book_name_list, make_long_text
 from helper_functions import make_category_list
 
 def make_color_list():
-    """returns a color list to use in the scatter plots"""
+    """Returns a color list to use in the scatter plots"""
     color_dict = mcolors.XKCD_COLORS
     color_list = []
     for item in color_dict.values():
         color_list.append(item)
     return(color_list)
 
-def plot_matrix(matrix):
-    """plots the simularity matrix"""
+def plot_matrix(matrix, path):
+    """Plots the simularity matrix"""
     plt.matshow(matrix)
     plt.title('Document Similarity Matrix')
     plt.xlabel('Document ID')
     plt.ylabel('Document ID')
-    plt.savefig('Simularity_matrix.png', facecolor='white')
+    filename = path + 'Simularity_matrix.png'
+    plt.tight_layout()
+    plt.savefig(filename, facecolor='white')
 
-def plot_dendogram(similarity_matrix, index_dict):
-    """plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
+def plot_dendogram(similarity_matrix, index_dict, path):
+    """Plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
     book_names_list = make_book_name_list(index_dict)
     linkage_matrix = ward(similarity_matrix) # Define the linkage_matrix using ward clustering pre-computed distances
     mpl.rcParams['lines.linewidth'] = 5
@@ -47,10 +51,12 @@ def plot_dendogram(similarity_matrix, index_dict):
         labelsize = 20)
     plt.tick_params(width=50, length = 10)
     plt.tight_layout() # Show plot with tight layout
-    plt.savefig('Dendogram.png', facecolor='white')
+    filename = path + 'Dendogram.png'
+    plt.tight_layout()
+    plt.savefig(filename, facecolor='white')
 
-def plot_scatter(index_dict, x, y, offset, annotate=True):
-    """plots scatter points
+def plot_scatter(index_dict, x, y, offset, path, annotate=True):
+    """Plots scatter plot
 
     Parameters
     ----------
@@ -63,6 +69,8 @@ def plot_scatter(index_dict, x, y, offset, annotate=True):
         y co-ordinate of each point
     offset : float
         distance of each annotation from the data point
+    path : str
+        filepath for plots
     annotate : bool
         True if data points are to be annotated
     """
@@ -100,4 +108,6 @@ def plot_scatter(index_dict, x, y, offset, annotate=True):
     plt.title('Manifesto Map')
     plt.legend(loc = 'upper right', bbox_to_anchor=(1.35, 0.9), shadow=True, title="Category",)
     #need legend outside plot for clarity
-    plt.savefig('Manifesto_map.png',facecolor='white' )
+    filename = path + 'Manifesto_map.png'
+    plt.tight_layout()
+    plt.savefig(filename,facecolor='white' )
