@@ -5,7 +5,7 @@ ENCODING = 'utf-8-sig'
 PATH = 'test_data/'
 
 def test_read_text():
-    """Check distance read for an array element"""
+    """Unit test - reading text functionality"""
     filename = PATH + 'test_data1.txt'
     text = read_text(filename, ENCODING)
     expected_text = ' test data more data'
