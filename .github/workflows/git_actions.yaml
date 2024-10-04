@@ -23,7 +23,6 @@ jobs:
           cd docs
           make html
           cd ..
-          dir
       - name: Run ghp-import
         run: |
             ghp-import -n docs/_build/html
