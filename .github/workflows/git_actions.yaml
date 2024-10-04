@@ -1,4 +1,4 @@
-name: Unit Test
+name: Unit Test and documentation
 
 on: [push]
 
@@ -18,4 +18,10 @@ jobs:
           pip install pytest nltk
       - name: Test with pytest
         run: pytest --verbose
-        working-directory: 
+
+      - name: Product html in Sphinx
+        run: |
+          cd docs
+          make html
+
+              
