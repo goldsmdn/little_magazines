@@ -25,5 +25,9 @@ jobs:
           pip install sphinx_rtd_theme
           cd docs
           make html
+          - name: Run ghp-import
+      - name: Deploy to GitHub pages using ghp import
+        run: | 
+          ghp-import -n -p -f docs/_build/html
 
               
