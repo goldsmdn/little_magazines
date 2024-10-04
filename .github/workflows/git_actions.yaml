@@ -24,7 +24,10 @@ jobs:
           pip install sphinx scikit-learn scipy
           pip install sphinx_rtd_theme
           cd docs
+          sphinx-build . build/html
           make html
+          touch build/html/.nojekyll
+          cd ..
           - name: Run ghp-import
       - name: Deploy to GitHub pages using ghp import
         run: | 
