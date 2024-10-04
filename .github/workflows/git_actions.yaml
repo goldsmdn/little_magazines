@@ -21,7 +21,7 @@ jobs:
 
       - name: Product html in Sphinx
         run: |
-          pip install sphinx sklearn scipy
+          pip install sphinx scikit-learn scipy
           pip install sphinx_rtd_theme
           cd docs
           make html
