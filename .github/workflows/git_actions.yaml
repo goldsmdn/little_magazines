@@ -21,7 +21,7 @@ jobs:
 
       - name: Product html in Sphinx
         run: |
-          cd docs
+          cd docs/
           make html
 
               
