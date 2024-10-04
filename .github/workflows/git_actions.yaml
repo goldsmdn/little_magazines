@@ -18,15 +18,11 @@ jobs:
           pip install pytest nltk matplotlib
       - name: Test with pytest
         run: pytest --verbose
-
       - name: Product html in Sphinx
         run: |
-          pip install sphinx scikit-learn scipy
-          pip install sphinx_rtd_theme
-          sphinx-build docs docs/_build/html
+          pip install sphinx scikit-learn scipy sphinx_rtd_theme
           cd docs
           make html
-          - name: Run ghp-import
       - name: Deploy to GitHub pages using ghp import
         run: | 
           ghp-import -n -p -f docs/_build/html
