@@ -21,7 +21,8 @@ jobs:
 
       - name: Product html in Sphinx
         run: |
-          cd docs/
+          pip install sphinx
+          cd docs
           make html
 
               
