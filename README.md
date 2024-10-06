@@ -1,10 +1,10 @@
-# little_magazines
+# Mapping of texts
 
 ## Overview
-It is useful to map out texts so that text that are close in meaning are close in the map.  This might help identify hidden connections between the maps.  
+It is useful to map out texts, for example, books and articles, so that text that are close in meaning are close in the map.  This might help identify hidden connections between the maps.  
 
 ## Notebooks
-This reposititory currently contains a [Jupyter notebook](manifesto_map.ipynb) for mapping out texts based on simularities between the words that they contain.  The [notebook](manifesto_map.ipynb) contains documentation.  Futher notebooks are planned later.
+This reposititory currently contains a [Jupyter notebook](manifesto_map.ipynb) for mapping out texts based on simularities between the words that they contain.  The texts were featured in the 2015 film installation [Manifesto](https://en.wikipedia.org/wiki/Manifesto_\(2015_film\)) written, produced and directed by Julian Rosefeldt, in which Cate Blanchett reads out a series of manifestos.  The manifestos are grouped into a number of classifications, for example, Situationism, Futurism and Dadaism.  The aim of the work is to map out the different manifestos, and see how that mapping corresponds to the mappings given.  The [notebook](manifesto_map.ipynb) contains furthr documentation.  Futher notebooks are planned later.
 
 ## Unit testing
 A GitHub action automatically executes a series of Unit Tests on each push.
@@ -28,7 +28,7 @@ The Jupyter notebook with Python 3.12.  You will need to have the following Pyth
  ## Installation of the repository locally
 Clone the repository to a suitable location on your computer using the following command:
 ```
-git clone https://github.com/digicatapult/QTAP.git
+git clone https://github.com/goldsmdn/little_magazines
 
 ``` 
 ## Running the notebooks
@@ -44,7 +44,7 @@ Alternatively you can run in the VS code development environment, setting the Py
 Contributions to the repository are very welcome.  Please raise an issue if you have any problems, and feel free to contact me.
 
 ## Acknolwedgements
-The 'Manifesto Map' notebook was based on earlier 2018 GitHub [repository](https://github.com/utkuozbulak/unsupervised-learning-document-clustering) by Utku Ozbulak.  This was recoded to use the up to date SciKit Learn functionality. 
+The 'Manifesto Map' notebook was based on a 2018 GitHub [repository](https://github.com/utkuozbulak/unsupervised-learning-document-clustering) by Utku Ozbulak.  This was recoded to use the up to date SciKit Learn functionality. 
 
 Two blogs by Neri Van Otten were very helpful:
  - [How To Implement Bag-Of-Words In Python](https://spotintelligence.com/2022/12/20/bag-of-words-python/) 2018 
