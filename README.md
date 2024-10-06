@@ -4,7 +4,7 @@
 It is useful to map out texts, for example, books and articles, so that text that are close in meaning are close in the map.  This might help identify hidden connections between the maps.  
 
 ## Notebooks
-This reposititory currently contains a [Jupyter notebook](manifesto_map.ipynb) for mapping out texts based on simularities between the words that they contain.  The texts were featured in the 2015 film installation [Manifesto](https://en.wikipedia.org/wiki/Manifesto_\(2015_film\)) written, produced and directed by Julian Rosefeldt, in which Cate Blanchett reads out a series of manifestos.  The manifestos are grouped into a number of classifications, for example, Situationism, Futurism and Dadaism.  The aim of the work is to map out the different manifestos, and see how that mapping corresponds to the mappings given.  The [notebook](manifesto_map.ipynb) contains furthr documentation.  Futher notebooks are planned later.
+This reposititory currently contains a [Jupyter notebook](manifesto_map.ipynb) for mapping out texts based on simularities between the words that they contain.  The texts were featured in the 2015 film installation [Manifesto](https://en.wikipedia.org/wiki/Manifesto_\(2015_film\)) written, produced and directed by Julian Rosefeldt, in which Cate Blanchett reads out a series of manifestos.  The manifestos are grouped into a number of classifications, for example, Situationism, Futurism and Dadaism.  The aim of the work is to map out the different manifestos, and see how that mapping corresponds to the mappings given.  The [notebook](manifesto_map.ipynb) contains further documentation.  Futher notebooks are planned later.
 
 ## Unit testing
 A GitHub action automatically executes a series of Unit Tests on each push.
