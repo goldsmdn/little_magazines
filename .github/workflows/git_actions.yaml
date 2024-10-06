@@ -22,6 +22,7 @@ jobs:
         run: |
           cd docs
           make html
+          touch .nojekyl
           touch _build/html/.nojekyl
           cd ..
       - name: Run ghp-import
