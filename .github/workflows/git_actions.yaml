@@ -24,7 +24,6 @@ jobs:
           make html
           touch .nojekyll
           touch _build/html/.nojekyll
-          touch _build/html/_modules.nojekyll
           cd ..
           touch .nojekyll
       - name: Run ghp-import
