@@ -22,10 +22,10 @@ jobs:
         run: |
           cd docs
           make html
-          touch .nojekyl
-          touch _build/html/.nojekyl
+          touch .nojekyll
+          touch _build/html/.nojekyll
           cd ..
-          touch .nojekyl
+          touch .nojekyll
       - name: Run ghp-import
         run: |
             ghp-import -n -p -f docs/_build/html
