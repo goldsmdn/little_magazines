@@ -11,6 +11,7 @@ def remove_html_tags(text):
 
 def remove_special_characters(text):
     """Removes special charactors from text"""
+    # Note ^ inverts the list. 
     clean_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
     return clean_text
 
