@@ -14,7 +14,8 @@ based on simularities between the words that they contain.  The documents were f
  to the classifications in [Wikipidea]((https://en.wikipedia.org/wiki/Manifesto_\(2015_film\))) given.  
  The [notebook](manifesto_map.ipynb) contains further documentation.  Futher notebooks are planned later.
 
-A scatter plot of the documents is shown [below](/plot/Manifesto_map.png).
+A scatter plot of the documents is shown 
+![here](/plot/Manifesto_map.png).
 
 ## Unit testing
 A GitHub action automatically executes a series of Unit Tests on each push.
