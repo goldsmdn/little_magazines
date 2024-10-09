@@ -10,9 +10,9 @@ def remove_html_tags(text):
     return clean_text
 
 def remove_special_characters(text):
-    """Removes special charactors from text"""
+    """Removes special charactors and numbers from text"""
     # Note ^ inverts the list. 
-    clean_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+    clean_text = re.sub(r'[^a-zA-Z\s]', '', text)
     return clean_text
 
 def read_index(filename, encoding):
