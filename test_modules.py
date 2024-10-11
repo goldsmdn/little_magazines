@@ -44,6 +44,7 @@ def test_count_vectoriser():
     assert expected_array.all() == array.all()
 
 def test_simularity_matrix_calculation():
+    """check the calculation of the simularity matrix"""
     X = np.array([
                 [0, 1, 1, 1, 0, 0, 1, 0, 0],
                 [1, 2, 3, 2, 1, 1, 2, 0, 1],
