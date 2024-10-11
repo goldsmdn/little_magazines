@@ -22,7 +22,6 @@ def plot_matrix(matrix, path):
     plt.xlabel('Document ID')
     plt.ylabel('Document ID')
     filename = path + 'Simularity_matrix.png'
-    plt.tight_layout()
     plt.savefig(filename, facecolor='white')
 
 def plot_dendogram(similarity_matrix, index_dict, path):
@@ -103,8 +102,7 @@ def plot_scatter(index_dict, x, y, offset, path, annotate=True):
             for i, txt in enumerate(text_list):
                 plt.annotate(txt, 
                             (x_list[i],y_list[i]), 
-                            xytext =(x_list[i]+offset,y_list[i]+offset), 
-                            #arrowprops=dict(arrowstyle='->')
+                            xytext =(x_list[i]+offset,y_list[i]+offset)
                             )  
     plt.title('Manifesto Map')
     plt.legend(loc = 'upper right', bbox_to_anchor=(1.35, 0.9), shadow=True, title="Category",)
