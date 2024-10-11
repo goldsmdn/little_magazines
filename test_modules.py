@@ -1,6 +1,10 @@
 from text_functions import read_text, read_index
-from text_functions import read_text_files, tokenize
+from text_functions import read_text_files
+
+from clustering_functions import calculate_simularity_matrix
+
 from sklearn.feature_extraction.text import CountVectorizer
+
 import numpy as np
 
 ENCODING = 'utf-8-sig'
@@ -23,7 +27,7 @@ def test_full_process():
     assert expected_corpus == corpus
 
 def test_count_vectoriser():
-    """check vectoriser against unit test in sk-learn documentation"""
+    """check vectoriser against unit test in sklearn documentation"""
     path = 'test_data2/'
     filename = path + 'test_index.csv'
     index = read_index(filename, ENCODING)
@@ -38,3 +42,22 @@ def test_count_vectoriser():
                      [0, 1, 1, 1, 0, 0, 1, 0, 1,],
                     ])   
     assert expected_array.all() == array.all()
+
+def test_simularity_matrix_calculation():
+    X = np.array([
+                [0, 1, 1, 1, 0, 0, 1, 0, 0],
+                [1, 2, 3, 2, 1, 1, 2, 0, 1],
+                [1, 0, 0, 0, 1, 0, 1, 1, 0],
+                [0, 1, 0, 1, 0, 0, 1, 0, 1],
+            ]) 
+
+    expected_array = np.array([
+        [1, 0.9, 0.25, 0.75],
+        [0.9, 1, 0.4, 0.7],
+        [0.25, 0.4, 1, 0.25],
+        [0.75, 0.7, 0.25, 1]
+    ])
+
+    simularity_matrix = calculate_simularity_matrix(X)
+
+    assert expected_array.all() == simularity_matrix.all()
