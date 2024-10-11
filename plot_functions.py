@@ -3,7 +3,6 @@ from scipy.cluster.hierarchy import ward, dendrogram
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-from matplotlib import colormaps
 
 from helper_functions import make_book_name_list, make_long_text
 from helper_functions import make_category_list
@@ -29,11 +28,13 @@ def plot_matrix(matrix, path):
 def plot_dendogram(similarity_matrix, index_dict, path):
     """Plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
     book_names_list = make_book_name_list(index_dict)
-    linkage_matrix = ward(similarity_matrix) # Define the linkage_matrix using ward clustering pre-computed distances
+    linkage_matrix = ward(similarity_matrix) 
+    # Define the linkage_matrix using ward clustering pre-computed distances
+
     mpl.rcParams['lines.linewidth'] = 5
 
     fig, ax = plt.subplots(figsize=(15, 20)) # Set size
-    ax = dendrogram(linkage_matrix, orientation="right", labels=book_names_list);
+    ax = dendrogram(linkage_matrix, orientation="right", labels=book_names_list)
 
     plt.tick_params(
         axis= 'x',

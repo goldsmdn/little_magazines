@@ -1,17 +1,15 @@
 from sklearn.decomposition import PCA
-import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
-def calculate_simularity_matrix(normalised_matrix):
-    """Calculates simularity matrix from normalised matrix"""
-    normalised_array = normalised_matrix.toarray()
-    normalised_array_T = np.transpose(normalised_array)
-    simularity_matrix = normalised_array @ normalised_array_T
+def calculate_simularity_matrix(X):
+    """Calculates simularity matrix"""
+    simularity_matrix = cosine_similarity(X)
     return(simularity_matrix)
 
 def pca_reduction(similarity_matrix, n_components):
     """Calculates pca from simularity matrix and number of components"""
-    one_min_sim = 1 - similarity_matrix
+    distance_matrix = 1 - similarity_matrix
     model = PCA(n_components)
-    pos = model.fit_transform(one_min_sim)
+    pos = model.fit_transform(distance_matrix)
     x_pos, y_pos = pos[:, 0], pos[:, 1]
     return (x_pos, y_pos)
