@@ -78,7 +78,7 @@ def read_text_files(index, encoding, path):
     path : str
         The path to the data files
 
-        Returns
+    Returns
     -------
     corpus : list
         List of text strings, one for each document  
