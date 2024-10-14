@@ -55,7 +55,6 @@ def read_text(filename, encoding):
     text_string : str
         One clean text string for the whole file
     """
-
     with open( filename, 'r', encoding=encoding) as text_file:
         text_string = ''
         for line in text_file:
@@ -78,8 +77,12 @@ def read_text_files(index, encoding, path):
         get odd charactors at start of the file.
     path : str
         The path to the data files
-    """
 
+        Returns
+    -------
+    corpus : list
+        List of text strings, one for each document  
+    """
     corpus = []
     for item in index.values():
         filename = path + item['File']
