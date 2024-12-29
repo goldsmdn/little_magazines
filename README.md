@@ -2,17 +2,17 @@
 
 ## Overview
 It is useful to map documents, for example, books and articles, to gain a greater understanding of the relationships between them, and help 
-identify hidden connections between the documents.     
+identify hidden connections between the documents.       
 
 ## Notebooks
 This reposititory currently contains a [Jupyter notebook](manifesto_map.ipynb) for mapping documents 
-based on simularities between the documents word counts.  The documents were featured in the 2015 film installation
+based on simularities between the documents word counts.  The documents were featured in the 2015 film 
  [Manifesto](https://en.wikipedia.org/wiki/Manifesto_\(2015_film\)) written, 
  produced and directed by Julian Rosefeldt, in which Cate Blanchett reads out a series of manifestos.  
- The manifestos are classified, with classifications including Situationism, Futurism and Dadaism.  
+ The manifestos are classified in Wikipedia, with classifications including Situationism, Futurism and Dadaism.  
  The aim of the work is to map out the different manifestos, and see how that mapping corresponds 
  to the classifications given in [Wikipidea]((https://en.wikipedia.org/wiki/Manifesto_\(2015_film\))).
- The [notebook](manifesto_map.ipynb) contains further documentation.  Futher notebooks are planned later.
+ The [notebook](manifesto_map.ipynb) contains further documentation.  
 
 A scatter plot of the documents is shown 
 ![here](/plot/Manifesto_map.png).
@@ -43,7 +43,7 @@ git clone https://github.com/goldsmdn/little_magazines
 
 ``` 
 ## Running the notebooks
-To run the 'Manifesto map' notebook, open a terminal window and navigate to the folder containing the repository.  Then run the following command:
+To run the 'Manifesto map' notebook, open an Anaconda terminal window and navigate to the folder containing the repository.  Then run the following command:
 
 ```
 jupyter notebook manifesto_map.ipynb
