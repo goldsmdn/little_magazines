@@ -4,24 +4,26 @@ from text_functions import read_text_files
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import CountVectorizer
 
+from pathlib import Path
 import numpy as np
 
 ENCODING = 'utf-8-sig'
+TEST_DATA_PATH = 'test_data1'
 
 def test_read_text():
     """Unit test - reading text functionality"""
-    path = 'test_data1/'
-    filename = path + 'test_data1.txt'
-    text = read_text(filename, ENCODING)
+    data_file = 'test_data1.txt'
+    file_path = Path(TEST_DATA_PATH).joinpath(data_file)
+    text = read_text(file_path, ENCODING)
     expected_text = ' test data more data'
     assert expected_text == text
 
 def test_full_process():
     """Test end process from index read to corpus production"""
-    path = 'test_data1/'
-    filename = path + 'test_index.csv'
-    index = read_index(filename, ENCODING)
-    corpus = read_text_files(index, ENCODING, path)
+    data_file = 'test_index.csv'
+    file_path = Path(TEST_DATA_PATH).joinpath(data_file)
+    index = read_index(file_path, ENCODING)
+    corpus = read_text_files(index, ENCODING, TEST_DATA_PATH)
     expected_corpus = [' test data more data', ' test data more data words']
     assert expected_corpus == corpus
 

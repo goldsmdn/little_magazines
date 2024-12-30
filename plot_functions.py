@@ -7,6 +7,7 @@ import matplotlib.colors as mcolors
 from helper_functions import make_book_name_list, make_long_text
 from helper_functions import make_category_list
 
+from pathlib import Path
 import numpy as np
 
 def make_color_list():
@@ -47,8 +48,8 @@ def plot_matrix(matrix: np.array, path: str):
     plt.title('Document Similarity Matrix')
     plt.xlabel('Document ID')
     plt.ylabel('Document ID')
-    filename = path + 'Similarity_matrix.png'
-    plt.savefig(filename, facecolor='white')
+    filepath = Path(path).joinpath('Similarity_matrix.png')
+    plt.savefig(filepath, facecolor='white')
 
 def plot_dendogram(similarity_matrix: np.array, index_dict: dict, path: str):
     """Plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
@@ -77,9 +78,9 @@ def plot_dendogram(similarity_matrix: np.array, index_dict: dict, path: str):
         labelsize = 20)
     plt.tick_params(width=50, length = 10)
     plt.tight_layout() # Show plot with tight layout
-    filename = path + 'Dendogram.png'
+    filepath = Path(path).joinpath('Dendogram.png')
     plt.tight_layout()
-    plt.savefig(filename, facecolor='white')
+    plt.savefig(filepath, facecolor='white')
 
 def plot_scatter(index_dict: dict, x: list, y: list, offset: float, path: str, annotate: bool=True):
     """Plots scatter plot
@@ -133,6 +134,6 @@ def plot_scatter(index_dict: dict, x: list, y: list, offset: float, path: str, a
     plt.title('Manifesto Map')
     plt.legend(loc = 'upper right', bbox_to_anchor=(1.35, 0.9), shadow=True, title="Category",)
     #need legend outside plot for clarity
-    filename = path + 'Manifesto_map.png'
+    filepath = Path(path).joinpath('Manifesto_map.png')
     plt.tight_layout()
-    plt.savefig(filename,facecolor='white' )
+    plt.savefig(filepath,facecolor='white' )
