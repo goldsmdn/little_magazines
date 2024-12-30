@@ -48,8 +48,8 @@ def test_count_vectoriser():
                     ])   
     assert expected_array.all() == array.all()
 
-def test_simularity_matrix_calculation():
-    """check the calculation of the simularity matrix"""
+def test_similarity_matrix_calculation():
+    """check the calculation of the similarity matrix"""
     X = np.array([
                 [0, 1, 1, 1, 0, 0, 1, 0, 0],
                 [1, 2, 3, 2, 1, 1, 2, 0, 1],
@@ -64,6 +64,6 @@ def test_simularity_matrix_calculation():
         [0.75, 0.7, 0.25, 1]
     ])
 
-    simularity_matrix = cosine_similarity(X)
+    similarity_matrix = cosine_similarity(X)
 
-    assert expected_array.all() == simularity_matrix.all()
+    assert expected_array.all() == similarity_matrix.all()
