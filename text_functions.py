@@ -4,18 +4,18 @@ import re
 from nltk.stem.porter import PorterStemmer
 import nltk
 
-def remove_html_tags(text):
+def remove_html_tags(text: str) -> str:
     """Removes html charactors from text"""
     clean_text = re.sub(r'<.*?>', '', text)
     return clean_text
 
-def remove_special_characters(text):
+def remove_special_characters(text: str) -> str:
     """Removes special charactors and numbers from text"""
     # Note ^ inverts the list. 
     clean_text = re.sub(r'[^a-zA-Z\s]', '', text)
     return clean_text
 
-def read_index(filename, encoding):
+def read_index(filename: str, encoding: str) -> dict:
     """Reads CSV file and returns and dictionary
      
     Parameters
@@ -39,7 +39,7 @@ def read_index(filename, encoding):
             dict[next(index)] = row
     return(dict)
 
-def read_text(filename, encoding):
+def read_text(filename: str, encoding: str)->str:
     """Reads and cleans html tags and special charactors from a text file
 
     Parameters
@@ -56,16 +56,17 @@ def read_text(filename, encoding):
         One clean text string for the whole file
     """
     with open( filename, 'r', encoding=encoding) as text_file:
-        text_string = ''
+        NULL, SPACE = '', ' '
+        text_string = NULL
         for line in text_file:
             line_string = line.strip()
-            if line_string != '':
+            if line_string != NULL:
                 html_free_text = remove_html_tags(line_string)
                 clean_text = remove_special_characters(html_free_text)
-                text_string = text_string + ' ' + clean_text
+                text_string = text_string + SPACE + clean_text
     return(text_string)
 
-def read_text_files(index, encoding, path):
+def read_text_files(index: dict, encoding: str, path: str) -> list:
     """Read read files and concatenate into the corpus
 
     Parameters
@@ -90,7 +91,7 @@ def read_text_files(index, encoding, path):
         corpus.append(text_string)
     return(corpus)
 
-def tokenize(text):
+def tokenize(text: str) -> str:
         """Returns the stemmed text"""
         stemmer = PorterStemmer()
         tokens = [word for word in nltk.word_tokenize(text) if len(word) > 1] 

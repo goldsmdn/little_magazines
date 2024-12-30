@@ -1,12 +1,23 @@
 from sklearn.decomposition import PCA
+import numpy as np
 
-#def calculate_simularity_matrix(X):
-#    """Calculates simularity matrix"""
-#    simularity_matrix = cosine_similarity(X)
-#    return(simularity_matrix)
+def pca_reduction(similarity_matrix: np.array, n_components: int):
+    """Calculates pca from simularity matrix and number of components
+    
+    Parameters
+    ----------
+    similarity_matrix : array
+        A matrix containing the similarity between different data points
+    n_components : int
+        An integer showing the number of dimensions required
 
-def pca_reduction(similarity_matrix, n_components):
-    """Calculates pca from simularity matrix and number of components"""
+    Returns
+    -------
+    x_pos: array
+        The x positions of the points in the reduced dimensionality space
+    y_pos: array
+        The y positions of the points in the reduced dimensionality space
+    """
     distance_matrix = 1 - similarity_matrix
     model = PCA(n_components)
     pos = model.fit_transform(distance_matrix)

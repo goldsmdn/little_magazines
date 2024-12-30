@@ -1,9 +1,7 @@
 from text_functions import read_text, read_index
 from text_functions import read_text_files
 
-#from clustering_functions import calculate_simularity_matrix
 from sklearn.metrics.pairwise import cosine_similarity
-
 from sklearn.feature_extraction.text import CountVectorizer
 
 import numpy as np
