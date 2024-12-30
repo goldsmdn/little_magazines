@@ -1,7 +1,8 @@
 from text_functions import read_text, read_index
 from text_functions import read_text_files
 
-from clustering_functions import calculate_simularity_matrix
+#from clustering_functions import calculate_simularity_matrix
+from sklearn.metrics.pairwise import cosine_similarity
 
 from sklearn.feature_extraction.text import CountVectorizer
 
@@ -59,6 +60,6 @@ def test_simularity_matrix_calculation():
         [0.75, 0.7, 0.25, 1]
     ])
 
-    simularity_matrix = calculate_simularity_matrix(X)
+    simularity_matrix = cosine_similarity(X)
 
     assert expected_array.all() == simularity_matrix.all()
