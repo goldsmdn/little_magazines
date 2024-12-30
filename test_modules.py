@@ -8,12 +8,14 @@ from pathlib import Path
 import numpy as np
 
 ENCODING = 'utf-8-sig'
-TEST_DATA_PATH = 'test_data1'
+DATA_PATH = 'data'
+TEST_DATA_PATH1 = 'test_data1'
+TEST_DATA_PATH2 = 'test_data2'
 
 def test_read_text():
     """Unit test - reading text functionality"""
     data_file = 'test_data1.txt'
-    file_path = Path(TEST_DATA_PATH).joinpath(data_file)
+    file_path = Path(DATA_PATH).joinpath(TEST_DATA_PATH1).joinpath(data_file)
     text = read_text(file_path, ENCODING)
     expected_text = ' test data more data'
     assert expected_text == text
@@ -21,18 +23,20 @@ def test_read_text():
 def test_full_process():
     """Test end process from index read to corpus production"""
     data_file = 'test_index.csv'
-    file_path = Path(TEST_DATA_PATH).joinpath(data_file)
+    data_path = Path(DATA_PATH).joinpath(TEST_DATA_PATH1)
+    file_path = Path(data_path).joinpath(data_file)
     index = read_index(file_path, ENCODING)
-    corpus = read_text_files(index, ENCODING, TEST_DATA_PATH)
+    corpus = read_text_files(index, ENCODING, data_path)
     expected_corpus = [' test data more data', ' test data more data words']
     assert expected_corpus == corpus
 
 def test_count_vectoriser():
     """check vectoriser against unit test in sklearn documentation"""
-    path = 'test_data2/'
-    filename = path + 'test_index.csv'
-    index = read_index(filename, ENCODING)
-    corpus = read_text_files(index, ENCODING, path)
+    data_file = 'test_index.csv'
+    data_path = Path(DATA_PATH).joinpath(TEST_DATA_PATH2)
+    file_path = Path(data_path).joinpath(data_file)
+    index = read_index(file_path, ENCODING)
+    corpus = read_text_files(index, ENCODING, data_path)
     vectorizer = CountVectorizer()
     X = vectorizer.fit_transform(corpus)
     array = X.toarray()
