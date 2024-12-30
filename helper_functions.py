@@ -1,4 +1,4 @@
-def make_category_list(index_dict):
+def make_category_list(index_dict: dict) -> list:
     """Makes a list of categories from the index to plot graphs
 
     Parameters
@@ -18,7 +18,7 @@ def make_category_list(index_dict):
             category_list.append(category)
     return(category_list)
 
-def make_long_text(item, show_category=False):
+def make_long_text(item: dict, show_category: bool=False) -> str:
     """Makes a long text to use in plots
 
     Parameters
@@ -45,7 +45,7 @@ def make_long_text(item, show_category=False):
         text = f'{title}-{author}({year})'
     return(text)
 
-def make_book_name_list(index_dict):
+def make_book_name_list(index_dict: list) -> list:
     """Makes a list of book names to use in plots
     by looping round the index dictionary read from index.csv
 

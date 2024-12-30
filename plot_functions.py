@@ -17,8 +17,8 @@ def make_color_list():
         color_list.append(item)
     return(color_list)
 
-def vector_plot(X, feature_names):
-    """returns vectors and a unit circle"""
+def vector_plot(X: np.array, feature_names: list):
+    """plots vectors and a unit circle"""
     num_points = X.shape[0]
     if num_points > 4:
         raise Exception(f'Not enough colours for {num_points} points')
@@ -41,7 +41,7 @@ def vector_plot(X, feature_names):
     y_c = np.sqrt(1 - np.square(x_c))
     plt.plot(x_c, y_c, color = 'black')
 
-def plot_matrix(matrix, path):
+def plot_matrix(matrix: np.array, path: str):
     """Plots the similarity matrix"""
     plt.matshow(matrix)
     plt.title('Document Similarity Matrix')
@@ -50,7 +50,7 @@ def plot_matrix(matrix, path):
     filename = path + 'Similarity_matrix.png'
     plt.savefig(filename, facecolor='white')
 
-def plot_dendogram(similarity_matrix, index_dict, path):
+def plot_dendogram(similarity_matrix: np.array, index_dict: dict, path: str):
     """Plots a dendogram from the simularity matrix and a dictionary read from index.csv"""
     book_names_list = make_book_name_list(index_dict)
     linkage_matrix = ward(similarity_matrix) 
@@ -81,7 +81,7 @@ def plot_dendogram(similarity_matrix, index_dict, path):
     plt.tight_layout()
     plt.savefig(filename, facecolor='white')
 
-def plot_scatter(index_dict, x, y, offset, path, annotate=True):
+def plot_scatter(index_dict: dict, x: list, y: list, offset: float, path: str, annotate: bool=True):
     """Plots scatter plot
 
     Parameters
