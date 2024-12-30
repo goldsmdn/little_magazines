@@ -1,10 +1,9 @@
 from sklearn.decomposition import PCA
-from sklearn.metrics.pairwise import cosine_similarity
 
-def calculate_simularity_matrix(X):
-    """Calculates simularity matrix"""
-    simularity_matrix = cosine_similarity(X)
-    return(simularity_matrix)
+#def calculate_simularity_matrix(X):
+#    """Calculates simularity matrix"""
+#    simularity_matrix = cosine_similarity(X)
+#    return(simularity_matrix)
 
 def pca_reduction(similarity_matrix, n_components):
     """Calculates pca from simularity matrix and number of components"""
